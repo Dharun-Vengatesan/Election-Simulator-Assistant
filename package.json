@@ -1,0 +1,19 @@
+{
+  "name": "election-simulator",
+  "version": "1.0.0",
+  "description": "An interactive, decision-based educational simulator about the election process.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "jest tests/"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

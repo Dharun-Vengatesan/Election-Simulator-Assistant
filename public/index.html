@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="An interactive, decision-based educational simulator about the election process. Experience the election as a Voter, Candidate, or Officer.">
+    <title>Election Simulator Assistant</title>
+    <link rel="stylesheet" href="css/style.css?v=20260424">
+    <!-- Google tag (gtag.js) - Minimal Integration -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+    <main class="scene-shell">
+        <header class="top-bar">
+            <h1>Election Simulator Assistant</h1>
+            <button id="reset-btn" class="ghost-btn" hidden>Restart</button>
+        </header>
+
+        <section id="role-selection-view" class="view active">
+            <div class="scene-card intro-card">
+                <h2>Pick Your Role. Shape the Election.</h2>
+                <p class="lead">Every action changes the outcome. Explore honest, risky, and strategic paths to see how democracy responds.</p>
+                <div class="role-grid">
+                    <button class="role-card" data-role="voter">
+                        <span class="role-avatar">👤</span>
+                        <h3>Voter</h3>
+                        <p>Navigate registration, booth-day choices, and information traps.</p>
+                    </button>
+                    <button class="role-card" data-role="officer">
+                        <span class="role-avatar">🧑‍💼</span>
+                        <h3>Election Officer</h3>
+                        <p>Protect fairness while handling pressure and unexpected failures.</p>
+                    </button>
+                    <button class="role-card" data-role="candidate">
+                        <span class="role-avatar">🎤</span>
+                        <h3>Candidate</h3>
+                        <p>Run a campaign where tactics and ethics both have consequences.</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulation-view" class="view" aria-live="polite">
+            <div class="hud">
+                <div class="hud-top">
+                    <p id="role-indicator" class="role-indicator"></p>
+                    <p id="score-display" class="score-chip">Democracy Score: 0</p>
+                </div>
+                <div class="progress-track" aria-label="Election timeline progress">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <p id="stage-label" class="stage-label"></p>
+            </div>
+
+            <article id="scene-card" class="scene-card game-scene">
+                <header class="scene-head">
+                    <span id="scene-avatar" class="scene-avatar">👤</span>
+                    <div class="scene-head-text">
+                        <p id="scene-role" class="scene-role"></p>
+                        <h2 id="scene-title">Scene Title</h2>
+                    </div>
+                </header>
+
+                <section id="dialogue-box" class="dialogue-box">
+                    <p id="scene-description"></p>
+                </section>
+
+                <div id="feedback-alert" class="feedback-alert hidden" role="alert">
+                    <p id="feedback-text"></p>
+                </div>
+
+                <div id="options-container" class="options-container"></div>
+            </article>
+        </section>
+
+        <section id="summary-view" class="view">
+            <div class="scene-card summary-card">
+                <h2>Your Election Journey</h2>
+                <p id="summary-status" class="summary-status"></p>
+                <p class="lead">Role: <span id="summary-role-name"></span></p>
+
+                <div class="summary-stats">
+                    <div class="stat-box positive">
+                        <span class="stat-value" id="stat-score">0</span>
+                        <span class="stat-label">Democracy Score</span>
+                    </div>
+                    <div class="stat-box neutral">
+                        <span class="stat-value" id="stat-scenes">0</span>
+                        <span class="stat-label">Scenes Played</span>
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <h3>Route Taken</h3>
+                    <ul id="history-list" class="journey-list"></ul>
+                </div>
+
+                <div class="summary-section">
+                    <h3>What You Missed</h3>
+                    <ul id="missed-list" class="insights-list"></ul>
+                </div>
+
+                <div class="summary-section">
+                    <h3>Achievements</h3>
+                    <ul id="badge-list" class="insights-list"></ul>
+                </div>
+
+                <div class="summary-section">
+                    <h3>What If You Chose Differently?</h3>
+                    <ul id="what-if-list" class="insights-list"></ul>
+                </div>
+
+                <div class="action-row">
+                    <button id="try-path-btn" class="primary-btn">Try Different Path</button>
+                    <button id="play-again-btn" class="ghost-btn">Choose Another Role</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/data.js?v=20260423b"></script>
+    <script src="js/engine.js?v=20260423b"></script>
+    <script src="js/app.js?v=20260423b"></script>
+</body>
+</html>
