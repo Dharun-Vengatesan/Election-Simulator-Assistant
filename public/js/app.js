@@ -166,7 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    let isProcessing = false;
+
     function handleOptionSelect(index, btnElement) {
+        if (isProcessing) return;
+        isProcessing = true;
+
         const buttons = ui.optionsContainer.querySelectorAll('.option-btn');
         buttons.forEach(b => b.disabled = true);
 
@@ -196,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Delay before moving to next scene for feedback to be read
         setTimeout(() => {
+            isProcessing = false;
             if (result.isGameOver) {
                 renderSummary();
             } else {
@@ -329,6 +335,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         switchView('summary');
+
+        // Save to Firebase Database
+        if (window.FirebaseHelper) {
+            window.FirebaseHelper.saveGameScore(summary.roleName, summary.finalScore, summary.status);
+        }
     }
 
     // Basic internal validation

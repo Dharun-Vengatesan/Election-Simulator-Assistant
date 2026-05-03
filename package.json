@@ -5,13 +5,19 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "test": "jest tests/"
+    "test": "jest tests/ --coverage"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "compression": "^1.8.1",
+    "cors": "^2.8.6",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.4.1",
+    "helmet": "^8.1.0"
   },
   "devDependencies": {
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "supertest": "^7.2.2"
   },
   "engines": {
     "node": ">=18.0.0"
