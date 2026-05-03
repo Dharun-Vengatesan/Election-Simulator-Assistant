@@ -5,13 +5,7 @@ import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.g
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDJbHGm9wb-gJrXLbOjiNimRGQYbn9SoTs",
-  authDomain: "election-simulator-assistant.firebaseapp.com",
-  projectId: "election-simulator-assistant",
-  storageBucket: "election-simulator-assistant.firebasestorage.app",
-  messagingSenderId: "419973239000",
-  appId: "1:419973239000:web:14443a30a9c03612db07ad",
-  measurementId: "G-JDJSGKNN15"
+ //add your firebase conifg
 };
 
 let app, analytics, db;
